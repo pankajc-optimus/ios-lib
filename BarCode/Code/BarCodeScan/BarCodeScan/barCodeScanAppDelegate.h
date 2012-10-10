@@ -2,7 +2,7 @@
 //  barCodeScanAppDelegate.h
 //  BarCodeScan
 //
-//  Created by Optimus on 10/9/12.
+//  Created by Optimus on 10/10/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 

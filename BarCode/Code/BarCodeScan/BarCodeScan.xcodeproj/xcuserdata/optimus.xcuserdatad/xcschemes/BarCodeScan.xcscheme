@@ -13,7 +13,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CBA86E771624173B0055D728"
+               BlueprintIdentifier = "CBA4325616255C60002BC8F9"
                BuildableName = "BarCodeScan.app"
                BlueprintName = "BarCodeScan"
                ReferencedContainer = "container:BarCodeScan.xcodeproj">
@@ -31,7 +31,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CBA86E9B1624173B0055D728"
+               BlueprintIdentifier = "CBA4327A16255C60002BC8F9"
                BuildableName = "BarCodeScanTests.octest"
                BlueprintName = "BarCodeScanTests"
                ReferencedContainer = "container:BarCodeScan.xcodeproj">
@@ -41,7 +41,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CBA86E771624173B0055D728"
+            BlueprintIdentifier = "CBA4325616255C60002BC8F9"
             BuildableName = "BarCodeScan.app"
             BlueprintName = "BarCodeScan"
             ReferencedContainer = "container:BarCodeScan.xcodeproj">
@@ -60,7 +60,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CBA86E771624173B0055D728"
+            BlueprintIdentifier = "CBA4325616255C60002BC8F9"
             BuildableName = "BarCodeScan.app"
             BlueprintName = "BarCodeScan"
             ReferencedContainer = "container:BarCodeScan.xcodeproj">
@@ -78,7 +78,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CBA86E771624173B0055D728"
+            BlueprintIdentifier = "CBA4325616255C60002BC8F9"
             BuildableName = "BarCodeScan.app"
             BlueprintName = "BarCodeScan"
             ReferencedContainer = "container:BarCodeScan.xcodeproj">
