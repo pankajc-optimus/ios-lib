@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12A269" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="O9J-1V-RHX">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="l5w-Pg-moL">
+            <objects>
+                <viewController storyboardIdentifier="LoginPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O9J-1V-RHX" customClass="FLViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Isk-8H-jkD">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJD-uR-Hpj">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="285" id="yz6-YJ-luP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Login with Facebook">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fbLogin:" destination="O9J-1V-RHX" eventType="touchUpInside" id="LGS-4S-Bhd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aJD-uR-Hpj" firstAttribute="top" secondItem="Isk-8H-jkD" secondAttribute="top" constant="480" id="T99-8l-kQ0"/>
+                            <constraint firstItem="aJD-uR-Hpj" firstAttribute="centerX" secondItem="Isk-8H-jkD" secondAttribute="centerX" type="default" id="kvm-xF-5Ii"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lwa-dK-a0H" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-503" y="-241"/>
+        </scene>
+        <!--Did Login View Controller-->
+        <scene sceneID="F3q-0n-Adh">
+            <objects>
+                <viewController restorationIdentifier="LoginView" storyboardIdentifier="LoginView" id="Bih-F2-Ggk" customClass="FLDidLoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qOV-am-rfv">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AW9-O8-M3k">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="297" id="CUr-Mg-aO3"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4a2-We-Iea">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="513" id="GM9-qf-KVP"/>
+                                    <constraint firstAttribute="height" constant="215" id="zDQ-Yv-ICD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i6Y-7e-fk7" customClass="FBProfilePictureView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2Q-Eo-0SS">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="4Jj-3b-NjM"/>
+                                    <constraint firstAttribute="height" constant="44" id="E8C-g1-NfR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fbLogout:" destination="Bih-F2-Ggk" eventType="touchUpInside" id="W8G-1e-mcG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="K2Q-Eo-0SS" secondAttribute="trailing" constant="45" id="3Fx-oA-VZl"/>
+                            <constraint firstItem="i6Y-7e-fk7" firstAttribute="leading" secondItem="qOV-am-rfv" secondAttribute="leading" constant="75" id="7Jg-fI-78d"/>
+                            <constraint firstItem="AW9-O8-M3k" firstAttribute="top" secondItem="qOV-am-rfv" secondAttribute="top" constant="275" id="ITH-RI-abo"/>
+                            <constraint firstItem="4a2-We-Iea" firstAttribute="leading" secondItem="qOV-am-rfv" secondAttribute="leading" constant="83" id="SEL-1v-8iG"/>
+                            <constraint firstItem="AW9-O8-M3k" firstAttribute="leading" secondItem="i6Y-7e-fk7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="SkO-qs-mK2"/>
+                            <constraint firstItem="4a2-We-Iea" firstAttribute="top" secondItem="qOV-am-rfv" secondAttribute="top" constant="452" id="ZS5-ar-v2W"/>
+                            <constraint firstItem="K2Q-Eo-0SS" firstAttribute="top" secondItem="qOV-am-rfv" secondAttribute="top" constant="20" symbolic="YES" type="default" id="emG-bp-sww"/>
+                            <constraint firstAttribute="trailing" secondItem="AW9-O8-M3k" secondAttribute="trailing" constant="29" id="goQ-Xk-nk8"/>
+                            <constraint firstItem="i6Y-7e-fk7" firstAttribute="top" secondItem="qOV-am-rfv" secondAttribute="top" constant="147" id="ld2-z1-znM"/>
+                            <constraint firstAttribute="bottom" secondItem="i6Y-7e-fk7" secondAttribute="bottom" constant="572" id="odU-Kv-hn2"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="userInfo" destination="4a2-We-Iea" id="4Te-ZZ-K96"/>
+                        <outlet property="userNameLabel" destination="AW9-O8-M3k" id="uOz-3M-sxF"/>
+                        <outlet property="userProfileImage" destination="i6Y-7e-fk7" id="oVH-tm-eiC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dth-uU-KAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="372" y="-305"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="FBProfilePictureView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBProfilePictureView.h"/>
+        </class>
+        <class className="FLDidLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FLDidLoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="fbLogout:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="userInfo" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userProfileImage" candidateClass="FBProfilePictureView"/>
+            </relationships>
+        </class>
+        <class className="FLViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FLViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="fbLogin:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
