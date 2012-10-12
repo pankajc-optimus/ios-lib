@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE09A84B16234CE60063C8AC"
+               BlueprintIdentifier = "7D9C8216162869DA0062D06D"
                BuildableName = "PictureLibrary.app"
                BlueprintName = "PictureLibrary"
                ReferencedContainer = "container:PictureLibrary.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE09A86F16234CE70063C8AC"
+               BlueprintIdentifier = "7D9C8240162869DC0062D06D"
                BuildableName = "PictureLibraryTests.octest"
                BlueprintName = "PictureLibraryTests"
                ReferencedContainer = "container:PictureLibrary.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE09A84B16234CE60063C8AC"
+            BlueprintIdentifier = "7D9C8216162869DA0062D06D"
             BuildableName = "PictureLibrary.app"
             BlueprintName = "PictureLibrary"
             ReferencedContainer = "container:PictureLibrary.xcodeproj">
@@ -61,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE09A84B16234CE60063C8AC"
+            BlueprintIdentifier = "7D9C8216162869DA0062D06D"
             BuildableName = "PictureLibrary.app"
             BlueprintName = "PictureLibrary"
             ReferencedContainer = "container:PictureLibrary.xcodeproj">
@@ -79,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE09A84B16234CE60063C8AC"
+            BlueprintIdentifier = "7D9C8216162869DA0062D06D"
             BuildableName = "PictureLibrary.app"
             BlueprintName = "PictureLibrary"
             ReferencedContainer = "container:PictureLibrary.xcodeproj">
