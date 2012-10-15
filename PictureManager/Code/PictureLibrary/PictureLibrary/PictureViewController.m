@@ -1,19 +1,22 @@
 //
-//  ViewController.m
+//  PictureViewController.m
 //  PictureLibrary
 //
-//  Created by Lion User on 08/10/2012.
+//  Created by Optimus Information on 08/10/2012.
 //  Copyright (c) 2012 Optimus. All rights reserved.
 //
 
-#import "PicterViewController.h"
+#import "PictureViewController.h"
 
-@interface PicterViewController ()
+@interface PictureViewController ()
 
 @end
 
-@implementation PicterViewController
-@synthesize imageView, previewImageView, isImageSave;
+@implementation PictureViewController
+@synthesize imageView, previewImageView;
+
+NSString *saveImageString;
+BOOL isImageRotated;
 
 #define M_PI  3.14159265358979323846264338327950288
 NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
@@ -32,7 +35,7 @@ NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];   
+    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,13 +46,13 @@ NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
 
 - (void)viewDidUnload
 {
-    [self setImageView:nil];    
+    [self setImageView:nil];
     [self setPreviewImageView:nil];
     [super viewDidUnload];
 }
 
 /*
-  Method to capture image when user tap on 'Take from Camera' button.
+ Method to capture image when user tap on 'Take from Camera' button.
  */
 - (IBAction)captureFromCamera:(UIButton *)sender
 {
@@ -58,7 +61,7 @@ NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
 }
 
 /*
-  Method to pick image from gallery when user tap on 'Pick from gallery' button.
+ Method to pick image from gallery when user tap on 'Pick from gallery' button.
  */
 - (IBAction)pickFromGallery:(UIButton *)sender
 {
@@ -75,10 +78,11 @@ NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
 }
 
 /*
-  Method rotate image on tapping rotate button.
+ Method rotate image on tapping rotate button.
  */
 - (IBAction)rotateImage:(UIButton *)sender
 {
+    isImageRotated = YES;
     [self rotatePhoto:originalImage];
 }
 
@@ -86,15 +90,15 @@ NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
  Compress image.
  */
 - (IBAction)compressImage:(UIButton *)sender
-{    
+{
     [self compressPhoto:originalImage];
 }
 
 /*
- Method first check that the device on which the application is running has a camera. It then create a UIImagePickerController instance, assign the CameraViewController as the delegate for the object and define the media source as the camera. 
+ Method first check that the device on which the application is running has a camera. It then create a UIImagePickerController instance, assign the CameraViewController as the delegate for the object and define the media source as the camera.
  */
 -(void)useCamera
-{    
+{
     // Check if camera is available
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
@@ -123,7 +127,7 @@ NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
  Method set the photo source to Image-view and newImage flag is set to NO (since the photo is already in the library we don’t need to save it again).
  */
 -(void)useCameraRoll
-{    
+{
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
     {
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -133,9 +137,9 @@ NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
         imagePicker.delegate = self;
         if([self isPad])
         {
-            // Display pop over in case of iPad only           
+            // Display pop over in case of iPad only
             popover = [[UIPopoverController alloc]initWithContentViewController:imagePicker];
-             [popover presentPopoverFromRect:CGRectMake(0.0f, 415.0f, 750.0f, 1000.0f) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+            [popover presentPopoverFromRect:CGRectMake(0.0f, 415.0f, 750.0f, 1000.0f) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
             
             [popover setDelegate:self];
         }
@@ -158,7 +162,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 
 /*
- Method display image on the image-view after tacking from camera or picking from gallery. 
+ Method display image on the image-view after tacking from camera or picking from gallery.
  */
 -(void)displayPhoto:(NSDictionary *)info
 {
@@ -168,7 +172,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     {
         // Get image form the 'info' dictionary return by camera.
         originalImage = [info
-                          objectForKey:UIImagePickerControllerOriginalImage];
+                         objectForKey:UIImagePickerControllerOriginalImage];
         
         // Show the image on the imageview.
         imageView.image = originalImage;
@@ -194,8 +198,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             // If user picked from gallery then return url of the image.
             imageUrl = [info objectForKey:@"UIImagePickerControllerReferenceURL"];
         }
-    }        
-    [self dismissModalViewControllerAnimated:YES];   
+    }
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 /*
@@ -209,10 +213,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 
 /*
-  Method to take thumbnail of an image.
+ Method to take thumbnail of an image.
  */
 -(UIImage *)createThumbnail:(NSURL *)imageURL
-{    
+{
     ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
     {
         CGImageRef iref = [myasset thumbnail];
@@ -225,7 +229,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             
             [self saveImage:imageThumbnail];
         }
-    };    
+    };
     
     ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
     {
@@ -238,7 +242,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         [assetslibrary assetForURL:imageURL
                        resultBlock:resultblock
                       failureBlock:failureblock];
-    }    
+    }
     return imageThumbnail;
 }
 
@@ -260,14 +264,14 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     compressedImage = [UIImage imageWithData:data];
     [self.previewImageView setImage:compressedImage];
     previewImageView.contentMode = UIViewContentModeScaleAspectFit;
-
+    
     [self saveImage:compressedImage];
     
     return data;
 }
 
 /*
-  Method set maximum compression limit for image compression.
+ Method set maximum compression limit for image compression.
  */
 -(void)returnMaxCompressionLimit:(NSUInteger)maxSize
 {
@@ -313,8 +317,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                                                  8,
                                                  imgSize.width * 4,
                                                  colorspace,
-                                                 kCGImageAlphaPremultipliedLast);   
-
+                                                 kCGImageAlphaPremultipliedLast);
+    
     
 	// Rotate the image upside down
 	CGContextRotateCTM(context, M_PI);
@@ -331,10 +335,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 		// UIImage should only be accessed from the main thread
 		newRotatedImage = [UIImage imageWithCGImage:newCgImg];
         rotatedImageOrientation = newRotatedImage.imageOrientation;
-        
-        previewImageView.image = newRotatedImage;
-        previewImageView.contentMode = UIViewContentModeScaleAspectFit;
-        
         [self saveImage:newRotatedImage];
 	};
     
@@ -364,14 +364,47 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
          if (error)
          {
              NSLog(@"error");
-             isImageSave = NO;
          }
          else
          {
-             isImageSave = YES;
-             savedImageUrl = assetURL;             
+             NSLog(@"assestUrl %@", assetURL);
+             
+             saveImageString = [assetURL absoluteString];
+             if(isImageRotated)
+             {
+                 // Call method to display rotated image.
+                 [self showRotatedImage];
+                 isImageRotated = NO;
+             }
          }
      }];
+}
+
+/*
+ Method display rotated image.
+ */
+-(void)showRotatedImage
+{
+    // Display captured image.
+    ALAssetsLibraryAssetForURLResultBlock resultBlock = ^(ALAsset *asset)
+    {
+        UIImage *image;
+        ALAssetRepresentation *defaultRep = [asset defaultRepresentation];
+        image = [UIImage imageWithCGImage:[defaultRep fullScreenImage] scale:[defaultRep scale] orientation:0];
+        previewImageView.image = image;
+        previewImageView.contentMode = UIViewContentModeScaleAspectFit;
+    };
+    
+    ALAssetsLibraryAccessFailureBlock failureBlock  = ^(NSError *error)
+    {
+        NSLog(@"Unresolved error: %@, %@", error, [error localizedDescription]);
+    };
+    
+    ALAssetsLibrary* assetsLibrary = [[ALAssetsLibrary alloc] init] ;
+    
+    [assetsLibrary assetForURL:[NSURL URLWithString:saveImageString]
+                   resultBlock:resultBlock
+                  failureBlock:failureBlock];
 }
 
 @end

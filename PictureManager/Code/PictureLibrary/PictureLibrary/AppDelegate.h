@@ -2,8 +2,8 @@
 //  AppDelegate.h
 //  PictureLibrary
 //
-//  Created by Lion User on 08/10/2012.
-//  Copyright (c) 2012 Optimus. All rights reserved.
+//  Created by Optimus Information on 12/10/12.
+//  Copyright (c) 2012 Optimus Information. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

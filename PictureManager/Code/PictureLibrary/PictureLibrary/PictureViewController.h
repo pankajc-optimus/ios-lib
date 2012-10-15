@@ -1,29 +1,39 @@
 //
-//  ViewController.h
+//  PictureViewController.h
 //  PictureLibrary
 //
-//  Created by Lion User on 08/10/2012.
+//  Created by Optimus Information on 08/10/2012.
 //  Copyright (c) 2012 Optimus. All rights reserved.
 //
+
+/**
+ -For using this library developer should include these to file his/ her project and need to connect the outlet with UI properly.
+ Before building the project need to add to framework into the project:
+ 1.MobileCoreServices.framework
+ 2.AssestLibrary.framework
+ 
+ - For compress image developer can set compress image size by calling
+ returnMaxCompressionLimit:(NSUInteger)maxSize method.
+ by default image compress size is 1Mb(1048576);
+ 
+ **/
 
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface PicterViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate>
+@interface PictureViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate>
 {
     BOOL newImage;
     UIPopoverController *popover;
     NSURL *imageUrl;
-    UIImage *originalImage;    
-    UIImage *imageThumbnail;   
+    UIImage *originalImage;
+    UIImage *imageThumbnail;
     UIImage *compressedImage;
-    NSURL *savedImageUrl;
 }
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIImageView *previewImageView;
-@property (nonatomic, readwrite) BOOL isImageSave;
 
 - (IBAction)captureFromCamera:(UIButton *)sender;
 - (IBAction)pickFromGallery:(UIButton *)sender;
