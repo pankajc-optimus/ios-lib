@@ -6,8 +6,12 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+/* This application contains ZBarSDK library libzbar.a which supports armv7 architecture. So, do make sure that you have correct architecture settings in Build Settings. 
+ */
+
+
 #import <UIKit/UIKit.h>
-#import "ZBarSDK/Headers/ZBarSDK/ZBarSDK.h";
+#import "ZBarSDK/Headers/ZBarSDK/ZBarSDK.h"
 
 
 @interface barCodeScanViewController : UIViewController<ZBarReaderDelegate>
