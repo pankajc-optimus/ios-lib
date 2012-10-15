@@ -13,7 +13,10 @@
 @end
 
 @implementation PictureViewController
-@synthesize imageView, previewImageView, isImageSave;
+@synthesize imageView, previewImageView;
+
+NSString *saveImageString;
+BOOL isImageRotated;
 
 #define M_PI  3.14159265358979323846264338327950288
 NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
@@ -79,6 +82,7 @@ NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
  */
 - (IBAction)rotateImage:(UIButton *)sender
 {
+    isImageRotated = YES;
     [self rotatePhoto:originalImage];
 }
 
@@ -331,10 +335,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 		// UIImage should only be accessed from the main thread
 		newRotatedImage = [UIImage imageWithCGImage:newCgImg];
         rotatedImageOrientation = newRotatedImage.imageOrientation;
-        
-        previewImageView.image = newRotatedImage;
-        previewImageView.contentMode = UIViewContentModeScaleAspectFit;
-        
         [self saveImage:newRotatedImage];
 	};
     
@@ -364,14 +364,47 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
          if (error)
          {
              NSLog(@"error");
-             isImageSave = NO;
          }
          else
          {
-             isImageSave = YES;
-             savedImageUrl = assetURL;
+             NSLog(@"assestUrl %@", assetURL);
+             
+             saveImageString = [assetURL absoluteString];
+             if(isImageRotated)
+             {
+                 // Call method to display rotated image.
+                 [self showRotatedImage];
+                 isImageRotated = NO;
+             }
          }
      }];
+}
+
+/*
+ Method display rotated image.
+ */
+-(void)showRotatedImage
+{
+    // Display captured image.
+    ALAssetsLibraryAssetForURLResultBlock resultBlock = ^(ALAsset *asset)
+    {
+        UIImage *image;
+        ALAssetRepresentation *defaultRep = [asset defaultRepresentation];
+        image = [UIImage imageWithCGImage:[defaultRep fullScreenImage] scale:[defaultRep scale] orientation:0];
+        previewImageView.image = image;
+        previewImageView.contentMode = UIViewContentModeScaleAspectFit;
+    };
+    
+    ALAssetsLibraryAccessFailureBlock failureBlock  = ^(NSError *error)
+    {
+        NSLog(@"Unresolved error: %@, %@", error, [error localizedDescription]);
+    };
+    
+    ALAssetsLibrary* assetsLibrary = [[ALAssetsLibrary alloc] init] ;
+    
+    [assetsLibrary assetForURL:[NSURL URLWithString:saveImageString]
+                   resultBlock:resultBlock
+                  failureBlock:failureBlock];
 }
 
 @end
