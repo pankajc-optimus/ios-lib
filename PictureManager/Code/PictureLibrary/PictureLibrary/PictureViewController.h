@@ -22,7 +22,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface PictureViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate>
+@interface PictureViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate >
 {
     BOOL newImage;
     UIPopoverController *popover;
@@ -34,6 +34,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIImageView *previewImageView;
+@property (strong, nonatomic) IBOutlet UITextField *inputTextField;
 
 - (IBAction)captureFromCamera:(UIButton *)sender;
 - (IBAction)pickFromGallery:(UIButton *)sender;
@@ -63,10 +64,10 @@
 /** Rotate a image.
  *
  * @param UIImage image
- * User can rotate an image by tapping on Rotate button.
+ * @param NSInteger degree
+ * User can rotate an image by specifing angle to rotate image.
  */
--(UIImageOrientation )rotatePhoto:(UIImage *)image;
-
+- (UIImage *)imageRotatedByDegrees:(UIImage *)image:(NSInteger)degree;
 /** Create thumbnail of an image.
  *
  * @param UIImage actualImage

@@ -104,11 +104,25 @@
                                     <action selector="rotateImage:" destination="2" eventType="touchUpInside" id="ZqN-yi-740"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter value to rotate image" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AKN-Du-In4">
+                                <rect key="frame" x="177" y="446" width="205" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="b4G-k2-FZn">
+                                <rect key="frame" x="387" y="443" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="U6P-ui-b3Q" id="ZZt-Hs-svc"/>
+                        <outlet property="inputTextField" destination="b4G-k2-FZn" id="lj9-Dk-mmF"/>
                         <outlet property="previewImageView" destination="Vaf-zj-CQe" id="eKr-WA-vNa"/>
                     </connections>
                 </viewController>

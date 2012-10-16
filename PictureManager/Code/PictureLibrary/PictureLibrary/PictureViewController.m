@@ -21,6 +21,8 @@ BOOL isImageRotated;
 #define M_PI  3.14159265358979323846264338327950288
 NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
 
+CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
+
 /*
  Check user device
  */
@@ -36,6 +38,7 @@ NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.inputTextField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,7 +86,12 @@ NSUInteger maximumCompressionLimit = 1048576;// Default compression size 1Mb.
 - (IBAction)rotateImage:(UIButton *)sender
 {
     isImageRotated = YES;
-    [self rotatePhoto:originalImage];
+    
+    // Read angle to rotate image from input text field.
+    NSInteger angle = [self.inputTextField.text intValue];
+   
+    // Call image rotation method.
+    [self imageRotatedByDegrees:originalImage:angle];
 }
 
 /*
@@ -279,78 +287,39 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 
 /*
- Method return rotated image.
+ Method rotate image clock wise and counter clock wise .
+ User need to enter angle to rotate.
  */
-- (UIImageOrientation )rotatePhoto:(UIImage *)image
+- (UIImage *)imageRotatedByDegrees:(UIImage *)image:(NSInteger)degree
 {
-	__block CGImageRef cgImg;
-	__block CGSize imgSize;
-	__block UIImageOrientation orientation;
+    // Calculate the size of the rotated view's containing box for our drawing space
+    UIView *rotatedViewBox = [[UIView alloc] initWithFrame:CGRectMake(0,0,image.size.width, image.size.height)];
+    CGAffineTransform t = CGAffineTransformMakeRotation(DegreesToRadians(degree));
+    rotatedViewBox.transform = t;
+    CGSize rotatedSize = rotatedViewBox.frame.size;
     
-	dispatch_block_t createStartImgBlock = ^(void)
-    {
-		// UIImage should only be accessed from the main thread
-		UIImage *img = image;
-        
-        // Calculate pre rotated image size.
-		imgSize = [img size];
-        
-        // Check image orientation.
-		orientation = [img imageOrientation];
-		cgImg = CGImageRetain([img CGImage]); // this data is not rotated
-	};
+    // Create the bitmap context
+    UIGraphicsBeginImageContext(rotatedSize);
+    CGContextRef bitmap = UIGraphicsGetCurrentContext();
     
-	if([NSThread isMainThread])
-    {
-		createStartImgBlock();
-	}
-    else
-    {
-		dispatch_sync(dispatch_get_main_queue(), createStartImgBlock);
-	}
-	CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-	
-    // Allocate memory by passing NULL
-	CGContextRef context = CGBitmapContextCreate( NULL,
-                                                 imgSize.width,
-                                                 imgSize.height,
-                                                 8,
-                                                 imgSize.width * 4,
-                                                 colorspace,
-                                                 kCGImageAlphaPremultipliedLast);
+    // Move the origin to the middle of the image so we will rotate and scale around the center.
+    CGContextTranslateCTM(bitmap, rotatedSize.width/2, rotatedSize.height/2);
     
+    // Rotate the image context
+    CGContextRotateCTM(bitmap, DegreesToRadians(degree));
     
-	// Rotate the image upside down
-	CGContextRotateCTM(context, M_PI);
-	CGContextTranslateCTM(context, -imgSize.width, -imgSize.height);
-	CGContextDrawImage(context, CGRectMake(0.0, 0.0, imgSize.width, imgSize.height), cgImg );
+    // Now, draw the rotated/scaled image into the context
+    CGContextScaleCTM(bitmap, 1.0, -1.0);
+    CGContextDrawImage(bitmap, CGRectMake(-image.size.width / 2,
+                                          -image.size.height / 2, image.size.width, image.size.height), [image CGImage]);
     
-	// Grab the new rotated image
-	CGContextFlush(context);
-	CGImageRef newCgImg = CGBitmapContextCreateImage(context);
-	__block UIImage *newRotatedImage;
-    __block UIImageOrientation rotatedImageOrientation;
-	dispatch_block_t createRotatedImgBlock = ^(void) {
-        
-		// UIImage should only be accessed from the main thread
-		newRotatedImage = [UIImage imageWithCGImage:newCgImg];
-        rotatedImageOrientation = newRotatedImage.imageOrientation;
-        [self saveImage:newRotatedImage];
-	};
+    UIImage *rotatedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     
-	if([NSThread isMainThread])
-    {
-		createRotatedImgBlock();
-	}
-    else
-    {
-		dispatch_sync(dispatch_get_main_queue(), createRotatedImgBlock);
-	}
-	CGColorSpaceRelease(colorspace);
-	CGImageRelease(newCgImg);
-	CGContextRelease(context);
+    // Save rotated image to the photo gallery.
+    [self saveImage:rotatedImage];
     
-	return rotatedImageOrientation;
+    return rotatedImage;    
 }
 
 /*
@@ -391,8 +360,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         UIImage *image;
         ALAssetRepresentation *defaultRep = [asset defaultRepresentation];
         image = [UIImage imageWithCGImage:[defaultRep fullScreenImage] scale:[defaultRep scale] orientation:0];
-        previewImageView.image = image;
+        
         previewImageView.contentMode = UIViewContentModeScaleAspectFit;
+        previewImageView.image = image;
     };
     
     ALAssetsLibraryAccessFailureBlock failureBlock  = ^(NSError *error)
@@ -406,5 +376,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                    resultBlock:resultBlock
                   failureBlock:failureBlock];
 }
+
+/*
+ Function to Close OnScreen Keyboard when Done Button is tapped.
+ */
+-(BOOL)textFieldShouldReturn:(UITextField *)textfield
+{
+    [textfield resignFirstResponder];
+    return YES;
+}
+
 
 @end
