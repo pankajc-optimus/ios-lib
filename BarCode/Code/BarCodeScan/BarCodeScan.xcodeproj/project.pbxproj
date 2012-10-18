@@ -575,6 +575,7 @@
 				CBA4328F16255C60002BC8F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CBA4329016255C60002BC8F9 /* Build configuration list for PBXNativeTarget "BarCodeScanTests" */ = {
 			isa = XCConfigurationList;
@@ -583,6 +584,7 @@
 				CBA4329216255C60002BC8F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

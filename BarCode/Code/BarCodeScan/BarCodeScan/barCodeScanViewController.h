@@ -3,7 +3,7 @@
 //  BarCodeScan
 //
 //  Created by Optimus on 10/10/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Optimus Information. All rights reserved.
 //
 
 /* This application contains ZBarSDK library libzbar.a which supports armv7 architecture. So, do make sure that you have correct architecture settings in Build Settings. 
