@@ -1,0 +1,283 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB2FE1EB15C1746F0031EED4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB2FE1EA15C1746F0031EED4 /* UIKit.framework */; };
+		CB2FE1ED15C1746F0031EED4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB2FE1EC15C1746F0031EED4 /* Foundation.framework */; };
+		CB2FE1EF15C1746F0031EED4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB2FE1EE15C1746F0031EED4 /* CoreGraphics.framework */; };
+		CB2FE1F515C1746F0031EED4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB2FE1F315C1746F0031EED4 /* InfoPlist.strings */; };
+		CB2FE1F715C1746F0031EED4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2FE1F615C1746F0031EED4 /* main.m */; };
+		CB2FE1FB15C1746F0031EED4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2FE1FA15C1746F0031EED4 /* AppDelegate.m */; };
+		CB2FE1FE15C1746F0031EED4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB2FE1FC15C1746F0031EED4 /* MainStoryboard.storyboard */; };
+		CB2FE20115C1746F0031EED4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2FE20015C1746F0031EED4 /* ViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CB2FE1E615C1746F0031EED4 /* PushChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB2FE1EA15C1746F0031EED4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CB2FE1EC15C1746F0031EED4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CB2FE1EE15C1746F0031EED4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CB2FE1F215C1746F0031EED4 /* PushChat-Info.plist */ = {isa = PBXFileReference; path = "PushChat-Info.plist"; sourceTree = "<group>"; };
+		CB2FE1F415C1746F0031EED4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CB2FE1F615C1746F0031EED4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CB2FE1F815C1746F0031EED4 /* PushChat-Prefix.pch */ = {isa = PBXFileReference; path = "PushChat-Prefix.pch"; sourceTree = "<group>"; };
+		CB2FE1F915C1746F0031EED4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CB2FE1FA15C1746F0031EED4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CB2FE1FD15C1746F0031EED4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		CB2FE1FF15C1746F0031EED4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CB2FE20015C1746F0031EED4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB2FE1E315C1746F0031EED4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB2FE1EB15C1746F0031EED4 /* UIKit.framework in Frameworks */,
+				CB2FE1ED15C1746F0031EED4 /* Foundation.framework in Frameworks */,
+				CB2FE1EF15C1746F0031EED4 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB2FE1DB15C1746F0031EED4 = {
+			isa = PBXGroup;
+			children = (
+				CB2FE1F015C1746F0031EED4 /* PushChat */,
+				CB2FE1E915C1746F0031EED4 /* Frameworks */,
+				CB2FE1E715C1746F0031EED4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CB2FE1E715C1746F0031EED4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB2FE1E615C1746F0031EED4 /* PushChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB2FE1E915C1746F0031EED4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB2FE1EA15C1746F0031EED4 /* UIKit.framework */,
+				CB2FE1EC15C1746F0031EED4 /* Foundation.framework */,
+				CB2FE1EE15C1746F0031EED4 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB2FE1F015C1746F0031EED4 /* PushChat */ = {
+			isa = PBXGroup;
+			children = (
+				CB2FE1F915C1746F0031EED4 /* AppDelegate.h */,
+				CB2FE1FA15C1746F0031EED4 /* AppDelegate.m */,
+				CB2FE1FC15C1746F0031EED4 /* MainStoryboard.storyboard */,
+				CB2FE1FF15C1746F0031EED4 /* ViewController.h */,
+				CB2FE20015C1746F0031EED4 /* ViewController.m */,
+				CB2FE1F115C1746F0031EED4 /* Supporting Files */,
+			);
+			name = PushChat;
+			path = PushChatNew;
+			sourceTree = "<group>";
+		};
+		CB2FE1F115C1746F0031EED4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB2FE1F215C1746F0031EED4 /* PushChat-Info.plist */,
+				CB2FE1F315C1746F0031EED4 /* InfoPlist.strings */,
+				CB2FE1F615C1746F0031EED4 /* main.m */,
+				CB2FE1F815C1746F0031EED4 /* PushChat-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB2FE1E515C1746F0031EED4 /* PushChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB2FE20415C1746F0031EED4 /* Build configuration list for PBXNativeTarget "PushChat" */;
+			buildPhases = (
+				CB2FE1E215C1746F0031EED4 /* Sources */,
+				CB2FE1E315C1746F0031EED4 /* Frameworks */,
+				CB2FE1E415C1746F0031EED4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PushChat;
+			productName = PushChatNew;
+			productReference = CB2FE1E615C1746F0031EED4 /* PushChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB2FE1DD15C1746F0031EED4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = CB2FE1E015C1746F0031EED4 /* Build configuration list for PBXProject "PushChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CB2FE1DB15C1746F0031EED4;
+			productRefGroup = CB2FE1E715C1746F0031EED4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB2FE1E515C1746F0031EED4 /* PushChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB2FE1E415C1746F0031EED4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB2FE1F515C1746F0031EED4 /* InfoPlist.strings in Resources */,
+				CB2FE1FE15C1746F0031EED4 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB2FE1E215C1746F0031EED4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB2FE1F715C1746F0031EED4 /* main.m in Sources */,
+				CB2FE1FB15C1746F0031EED4 /* AppDelegate.m in Sources */,
+				CB2FE20115C1746F0031EED4 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CB2FE1F315C1746F0031EED4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB2FE1F415C1746F0031EED4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CB2FE1FC15C1746F0031EED4 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB2FE1FD15C1746F0031EED4 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CB2FE20215C1746F0031EED4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CB2FE20315C1746F0031EED4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB2FE20515C1746F0031EED4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PushChatNew/PushChat-Prefix.pch";
+				INFOPLIST_FILE = "PushChatNew/PushChat-Info.plist";
+				PRODUCT_NAME = PushChat;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CB2FE20615C1746F0031EED4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PushChatNew/PushChat-Prefix.pch";
+				INFOPLIST_FILE = "PushChatNew/PushChat-Info.plist";
+				PRODUCT_NAME = PushChat;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB2FE1E015C1746F0031EED4 /* Build configuration list for PBXProject "PushChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB2FE20215C1746F0031EED4 /* Debug */,
+				CB2FE20315C1746F0031EED4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB2FE20415C1746F0031EED4 /* Build configuration list for PBXNativeTarget "PushChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB2FE20515C1746F0031EED4 /* Debug */,
+				CB2FE20615C1746F0031EED4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB2FE1DD15C1746F0031EED4 /* Project object */;
+}
