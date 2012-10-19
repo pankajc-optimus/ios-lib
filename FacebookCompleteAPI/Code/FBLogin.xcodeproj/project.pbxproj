@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CB0DCD3C162E87F0005CB529 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0DCD3B162E87F0005CB529 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CB1B4B7216319951001A00AB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1B4B7116319951001A00AB /* FacebookSDK.framework */; };
 		CB3A1C0C162D738000DD0BA7 /* FLFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3A1C0B162D738000DD0BA7 /* FLFriendsViewController.m */; };
 		CBCD2B90162FC33000E2CA3D /* FLFacebookAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCD2B8F162FC33000E2CA3D /* FLFacebookAPI.m */; };
 		CBE25F3D162594D80043AD06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE25F3C162594D80043AD06 /* UIKit.framework */; };
@@ -27,7 +28,6 @@
 		CBE25F66162594DA0043AD06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE25F3E162594D80043AD06 /* Foundation.framework */; };
 		CBE25F6E162594DA0043AD06 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBE25F6C162594DA0043AD06 /* InfoPlist.strings */; };
 		CBE25F71162594DB0043AD06 /* FacebookLoginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE25F70162594DB0043AD06 /* FacebookLoginTests.m */; };
-		CBE25F7B1625953C0043AD06 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE25F7A1625953C0043AD06 /* FacebookSDK.framework */; };
 		CBE25F8016259C2B0043AD06 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE25F7F16259C2B0043AD06 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CBE25F8216259C320043AD06 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE25F8116259C320043AD06 /* libsqlite3.0.dylib */; };
 		CBE25F8516259CD40043AD06 /* FLDidLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE25F8416259CD40043AD06 /* FLDidLoginViewController.m */; };
@@ -46,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		CB0DCD3B162E87F0005CB529 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		CB1B4B7116319951001A00AB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		CB3A1C0A162D738000DD0BA7 /* FLFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFriendsViewController.h; sourceTree = "<group>"; };
 		CB3A1C0B162D738000DD0BA7 /* FLFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFriendsViewController.m; sourceTree = "<group>"; };
 		CBCD2B8E162FC33000E2CA3D /* FLFacebookAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFacebookAPI.h; sourceTree = "<group>"; };
@@ -86,11 +87,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB1B4B7216319951001A00AB /* FacebookSDK.framework in Frameworks */,
 				CB0DCD3C162E87F0005CB529 /* Social.framework in Frameworks */,
 				CBE25F871625A25F0043AD06 /* AdSupport.framework in Frameworks */,
 				CBE25F8216259C320043AD06 /* libsqlite3.0.dylib in Frameworks */,
 				CBE25F8016259C2B0043AD06 /* Accounts.framework in Frameworks */,
-				CBE25F7B1625953C0043AD06 /* FacebookSDK.framework in Frameworks */,
 				CBE25F3D162594D80043AD06 /* UIKit.framework in Frameworks */,
 				CBE25F3F162594D80043AD06 /* Foundation.framework in Frameworks */,
 				CBE25F41162594D80043AD06 /* CoreGraphics.framework in Frameworks */,
@@ -113,6 +114,7 @@
 		CBE25F2D162594D70043AD06 = {
 			isa = PBXGroup;
 			children = (
+				CB1B4B7116319951001A00AB /* FacebookSDK.framework */,
 				CB0DCD3B162E87F0005CB529 /* Social.framework */,
 				CBE25F42162594D80043AD06 /* FacebookLogin */,
 				CBE25F69162594DA0043AD06 /* FacebookLoginTests */,
@@ -431,6 +433,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)/../../../../Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FacebookLogin/FBLogin-Prefix.pch";
@@ -447,6 +450,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)/../../../../Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FacebookLogin/FBLogin-Prefix.pch";
