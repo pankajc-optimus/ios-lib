@@ -15,6 +15,9 @@
 
 @implementation CustomMapViewController
 
+@synthesize myMapView;
+@synthesize locationManager;
+
 #define MAP_OFFSET 268435456
 #define MAP_RADIUS 85445659.44705395
 
