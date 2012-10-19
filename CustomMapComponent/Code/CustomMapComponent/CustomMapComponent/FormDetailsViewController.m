@@ -22,10 +22,16 @@
     
 	// Do any additional setup after loading the view.
     NSLog(@"locationInformationDictionary %@", locationInformationDictionary);
+    self.navigationItem.title = @"Location Details";
+    
+    // Call method to display information into textfields.
     [self displayFields];
     
 }
 
+/*
+ Method call to display information into textfields.
+ */
 -(void)displayFields
 {
     if(locationInformationDictionary.count >0)
@@ -35,14 +41,17 @@
         NSString *zipCode = [locationInformationDictionary valueForKey:@"postalCode"];
         
         UITextField *locationTextField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f, 10.0f, self.view.frame.size.width-20.0f, 30.0f)];
+        [locationTextField setBorderStyle:UITextBorderStyleRoundedRect];
         [locationTextField setText:touchedLocation];
         locationTextField.enabled = NO;
         
-        UITextField *countryTextField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f, 40.0f, self.view.frame.size.width-20.0f, 30.0f)];
+        UITextField *countryTextField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f, 45.0f, self.view.frame.size.width-20.0f, 30.0f)];
+        [countryTextField setBorderStyle:UITextBorderStyleRoundedRect];
         [countryTextField setText:country];
         countryTextField.enabled = NO;
        
-        UITextField *zipCodeTextField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f, 70.0f, self.view.frame.size.width-20.0f, 30.0f)];
+        UITextField *zipCodeTextField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f, 80.0f, self.view.frame.size.width-20.0f, 30.0f)];
+        [zipCodeTextField setBorderStyle:UITextBorderStyleRoundedRect];
         [zipCodeTextField setText:zipCode];
         zipCodeTextField.enabled = NO;
         

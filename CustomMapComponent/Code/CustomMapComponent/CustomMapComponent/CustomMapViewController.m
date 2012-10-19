@@ -47,7 +47,7 @@ int scrollCounter;
     {
         self.locationManager = [[CLLocationManager alloc] init];
         
-        // Set locationmanager delegate.
+        // Set location manager delegate.
         [self.locationManager setDelegate:self];
         
         self.locationManager.distanceFilter = kCLDistanceFilterNone;        
@@ -60,18 +60,18 @@ int scrollCounter;
         [alertView show];
     }
     
-    // Add a long press gester reconizer to show a flag on the map by tapping on the map.
+    // Add a long press gesture recogniser to show a flag on the map by tapping on the map.
     longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnMap)];
     [self.myMapView addGestureRecognizer:longPressGesture];
     
     
     // Add a TapGestureRecognizer to close map pop-up view.
-    singleTapGester = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeMapPopUp:)];
-    singleTapGester.delegate = self;
-    singleTapGester.numberOfTouchesRequired =1;
+    singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeMapPopUp:)];
+    singleTapGesture.delegate = self;
+    singleTapGesture.numberOfTouchesRequired =1;
     
-    // Add gesture recognize to mapview.
-    [self.myMapView addGestureRecognizer:singleTapGester];
+    // Add gesture recognise to mapview.
+    [self.myMapView addGestureRecognizer:singleTapGesture];
 }
 
 /*
@@ -112,7 +112,7 @@ int scrollCounter;
     {
         if(longPressGesture.state != UIGestureRecognizerStateBegan)
         {
-            // If the gesture recognizer has received touch objects recognized as a continuos gesture, then return.
+            // If the gesture recogniser has received touch objects recognised as a continuos gesture, then return.
             return;
         }
         
@@ -133,22 +133,23 @@ int scrollCounter;
  */
 -(void)locationInformation:(float)latitudeValue:(float)longitudeValue
 {    
-    NSLog(@"latitudeValue %f",latitudeValue);
-    NSLog(@"longitudeValue %f",longitudeValue);
-    
-    // Remove older pin before drawing a new pin.
-    if (pindropAnnotation != nil)
-    {
-        [self.myMapView removeAnnotation:pindropAnnotation];
-    }    
-    
     locationInfoDictionary = [[NSMutableDictionary alloc] init];
     
     CLLocation *location = [[CLLocation alloc] initWithLatitude:latitudeValue longitude:longitudeValue];
     
     // Use CLGeocoder class to find the information for the location.
-    myGeocoder = [[CLGeocoder alloc] init];
+    myGeocoder = [[CLGeocoder alloc] init];    
     
+    // Remove older annotation from the map.
+    [self.myMapView removeAnnotation:pindropAnnotation];
+    
+    // Create new annotation and add it to the map
+    pindropAnnotation = [[CustomAnnotation alloc] initWithCoordinates:location.coordinate];
+    
+    // Add annotation to the map.
+    [self.myMapView addAnnotation:pindropAnnotation];
+    
+    // Find location details using reverse geocoding mapping.
     [myGeocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error)
     {
         if(error == nil && [placemarks count] > 0)
@@ -178,26 +179,18 @@ int scrollCounter;
         {
             NSLog(@"An error occurred = %@", error);
         }
-        
-        // Create the annotation and add it to the map
-        pindropAnnotation = [[CustomAnnotation alloc] initWithCoordinates:location.coordinate];        
-        pindropAnnotation.detailsDictionary = locationInfoDictionary;
-        [self.myMapView addAnnotation:pindropAnnotation];
-
+       pindropAnnotation.detailsDictionary = locationInfoDictionary;          
     }];
 }
 
 /*
  Method return information for user default location.
  This method is same as "locationInformation" method, only  annotation class is different. 
- We can use same method by taking a bool varibale and check condition based on that.
- But for library purpose i am making two seprate function.
+ We can use same method by taking a bool variable and check condition based on that.
+ But for library purpose i am making two separate function.
  */
 -(void)defaultLocationInformation:(float)latitudeValue:(float)longitudeValue
-{
-    NSLog(@"latitudeValue %f",latitudeValue);
-    NSLog(@"longitudeValue %f",longitudeValue);
-       
+{     
     userDefaultLocationInfoDictionary = [[NSMutableDictionary alloc] init];
     
     CLLocation *location = [[CLLocation alloc] initWithLatitude:latitudeValue longitude:longitudeValue];
@@ -240,7 +233,7 @@ int scrollCounter;
 }
 
 /*
- Delegate method to customize pin 
+ Delegate method to customise pin
  */
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 { 
@@ -281,7 +274,7 @@ int scrollCounter;
 
 /*
  Delegate method: when user taps on the annotation the tap event captured in this method.
- I am showing custom callout, so here i am creating a custom view to show as map callout. 
+ I am showing custom callout, so here i am creating a custom view. 
  
  By fetching location details using reverseGeocodeLocation class, here i am showing few details on the callout.
  */
@@ -289,28 +282,47 @@ int scrollCounter;
 {
     [timer invalidate];
     [zoomTimer invalidate];
+    
+    // Selected view.
+    selectedAnnotation = view;
+    
+    // Show a custom callout on tapping a annotation.
+    [self createCustomCallout];
+}
+
+/*
+ Method call to create custom callout with some information shows on the callout.
+ */
+-(void)createCustomCallout
+{
+    // Create a mutable dictionary to contains selected annotation location details.
     annotationItemsDict = [[NSMutableDictionary alloc] init];
     
-    if ([view.annotation isKindOfClass:[MKUserLocation class]])
+    if ([selectedAnnotation.annotation isKindOfClass:[MKUserLocation class]])
     {
-        [annotationItemsDict  setDictionary:userDefaultLocationInfoDictionary];       
+        // For user default location annotation, fetch location details.
+        [annotationItemsDict  setDictionary:userDefaultLocationInfoDictionary];
     }
-    else if ([view.annotation isKindOfClass:[CustomAnnotation class]])
+    else if ([selectedAnnotation.annotation isKindOfClass:[CustomAnnotation class]])
     {
-        CustomAnnotation *customAnnotation = view.annotation;
-        [annotationItemsDict setDictionary:customAnnotation.detailsDictionary];        
+        // For tapped annotation, fetch location details.
+        CustomAnnotation *customAnnotation = selectedAnnotation.annotation;
+        [annotationItemsDict setDictionary:customAnnotation.detailsDictionary];
     }
     
-    CGPoint annotationCenter = [mapView convertCoordinate:view.annotation.coordinate toPointToView:mapView];
-     NSLog(@"annotationCenter.x %f annotationCenter.y %f", annotationCenter.x, annotationCenter.y);    
-
-    NSLog(@"annotationItemsDict %@", annotationItemsDict);
+    // Find the selected annotation coordinates on the map to show custom callout on the annotation.
+    CGPoint annotationCenter = [self.myMapView convertCoordinate:selectedAnnotation.annotation.coordinate toPointToView:self.myMapView];
+    NSLog(@"annotationCenter.x %f annotationCenter.y %f", annotationCenter.x, annotationCenter.y);
+    float calloutYCoordinate = annotationCenter.y;
+    
+    // Fetch location information from dictionary to show on the map callout.  
     NSString *touchedLocation = [annotationItemsDict valueForKey:@"touchedLocation"];
     NSString *country = [annotationItemsDict valueForKey:@"country"];
-    NSString *zipCode = [annotationItemsDict valueForKey:@"postalCode"];    
+    NSString *zipCode = [annotationItemsDict valueForKey:@"postalCode"];
     
     customCalloutView = [[UIView alloc] init];
     
+    // Show information on the labels.
     UILabel *touchedLocationLabel = [[UILabel alloc]initWithFrame:CGRectMake(15.0f, 10.0f, 160.0f, 30.0f)];
     [touchedLocationLabel setBackgroundColor:[UIColor clearColor]];
     [touchedLocationLabel setText:touchedLocation];
@@ -334,12 +346,13 @@ int scrollCounter;
     UIButton *accessoryButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     accessoryButton.frame = CGRectMake(240.0f, 10.0f, 30.0f, 30.0f);
     [accessoryButton addTarget:self action:@selector(showDetailsForm) forControlEvents:UIControlEventTouchUpInside];
-    [customCalloutView addSubview:accessoryButton];
+    [customCalloutView addSubview:accessoryButton];    
     
     if([self isPad])
     {
+        // For iPad we can show the callout in a PopOverController show that it look like the default callout.
         customCalloutView.frame = CGRectMake(10.0f, 50.0f, 280.0f, 160.0f);
-
+        
         CustomMapViewController *presentViewController = [[CustomMapViewController alloc] init];
         
         popOverController = [[UIPopoverController alloc] initWithContentViewController:presentViewController];
@@ -349,21 +362,42 @@ int scrollCounter;
         popOverController.popoverContentSize = CGSizeMake(280.0f, 170.0f);
         
         // Show the popover next to the annotation view (pin)
-        [popOverController presentPopoverFromRect:view.bounds inView:view
+        [popOverController presentPopoverFromRect:selectedAnnotation.bounds inView:selectedAnnotation
                          permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
     else
     {
-        customCalloutView.frame = CGRectMake(10.0f, 50.0f, 280.0f, 160.0f);
+        // For iPhone we can't use popover controller so we are customizing the callout view so that it look similar to iPad one and show near to the annotation.
+        if(calloutYCoordinate >190.0f)
+        {
+            // Show callout above the annotation.
+            customCalloutView.frame = CGRectMake(10.0f, calloutYCoordinate -190.0f, 280.0f, 160.0f);
+        }
+        else
+        {
+            // Show callout below the annotation.
+            customCalloutView.frame = CGRectMake(10.0f, calloutYCoordinate, 280.0f, 160.0f);
+        }
+        
+        customCalloutView.alpha = 0.0;
         customCalloutView.layer.borderWidth = 6.0f;
         customCalloutView.layer.cornerRadius = 8.0f;
         customCalloutView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+        customCalloutView.layer.masksToBounds = YES;       
         
         [self.view addSubview:customCalloutView];
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.4];
+        [customCalloutView setAlpha:1.0];
+        [UIView commitAnimations];
+        [UIView setAnimationDuration:0.0];
     }
-    selectedAnnotation = view;
 }
 
+/*
+ Method call to location details form by tapping on accessory button on the callout.
+ */
 -(void)showDetailsForm
 {      
     [self.myMapView deselectAnnotation:selectedAnnotation.annotation animated:YES];
@@ -386,7 +420,7 @@ int scrollCounter;
 }
 
 /*
-Method to recognize tap gesture along with map gesture events.
+  UIGestureRecognizer delegate method to recognise tap gesture along with map gesture events.
 */
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 shouldRecognizeSimultaneouslyWithGestureRecognizer:
@@ -420,6 +454,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:
     
     if(animated)
     {
+        // Invalidate method stop the counter if user performed another event before 3 second.
         [timer invalidate];
         [zoomTimer invalidate];
         
@@ -430,10 +465,12 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:
         zoomTimer = theTimer;
         
         // Counter that track the number of seconds before count down reach.
+        // I am using 3 second here, but it can be customise as per requirements.
         zoomCounter = 3;
     }
     else
-    {        
+    {
+        // Invalidate method stop the counter if user performed another event before 3 second.
         [timer invalidate];
         [zoomTimer invalidate];
         
@@ -444,6 +481,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:
         timer = theTimer;
         
         // Counter that track the number of seconds before count down reach.
+         // I am using 3 second, but it can be customise as per requirements.
         scrollCounter = 3;
     }
 }
@@ -455,7 +493,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:
 {
     scrollCounter--;
     if (scrollCounter < 0)
-    {
+    {         
         [timer invalidate];
         timer = nil;
         scrollCounter = 0;

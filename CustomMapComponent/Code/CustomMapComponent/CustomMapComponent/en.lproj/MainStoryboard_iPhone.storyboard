@@ -76,7 +76,6 @@
         <class className="CustomMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomMapViewController.h"/>
             <relationships>
-                <relationship kind="action" name="dropPin:"/>
                 <relationship kind="action" name="showDefaultLocation:"/>
                 <relationship kind="outlet" name="myMapView" candidateClass="MKMapView"/>
             </relationships>

@@ -7,10 +7,22 @@
 //
 
 /**
- -For using this library developer should include these to file his/ her project and need to connect the outlet with UI properly.
+ -For using this library developer should include these file into his/ her project and need to connect the outlet with UI properly.
+ -CustomMapViewController.h
+ -CustomMapViewController.m
+ 
+ -CustomAnnotation.h
+ -CustomAnnotation.m 
+ CustomAnnotation class used to create custom annotation.
+ 
+ -FormDetailsViewController.h
+ -FormDetailsViewController.m  
+ FormDetailsViewController class used to show details by tapping on the accessory button on the callout.
+ There is a method 'showDetailsForm' to show FormDetailsViewController by tapping on 'accessory' button.  
+ 
  Before building the project need to add two framework into the project:
  1.MapKit.framework
- 2.CoreLocation.framework 
+ 2.CoreLocation.framework
  **/
 
 #import <UIKit/UIKit.h>
@@ -36,7 +48,7 @@
     UIView *customCalloutView;
     UIPopoverController *popOverController;
     MKAnnotationView *selectedAnnotation;
-    UITapGestureRecognizer *singleTapGester;
+    UITapGestureRecognizer *singleTapGesture;
     
     NSTimer *timer;
     NSTimer *zoomTimer;
@@ -63,4 +75,46 @@
  */
 -(void)handleTapOnMap;
 
+/*
+ * Method return information for location touched on the map.
+ *
+ * @param float lattitude
+ * @param float longitude
+ * Method fetch location information(Country name, locality name etc.) by using CLGeocoder class. 
+ */
+-(void)locationInformation:(float)latitudeValue:(float)longitudeValue;
+
+/*
+ * This method is same as the 'locationInformation' method, but it call to fetch default location information. 
+ *
+ * @param float lattitude
+ * @param float longitude
+ * Method fetch location information(Country name, locality name etc.) by using CLGeocoder class.
+ */
+-(void)defaultLocationInformation:(float)latitudeValue:(float)longitudeValue;
+
+/*
+ * Method call to create custom callout with some information shows on the callout.
+ */
+-(void)createCustomCallout;
+
+/*
+ * Method call to location details form by tapping on accessory button on the callout.
+ */
+-(void)showDetailsForm;
+
+/*
+ * Method to close custom callout by tapping on the map.
+ */
+-(void)closeMapPopUp:sender;
+
+/*
+ * Method to calculate zoom level if user change map zoom level.
+ */
+-(void)showCurrentZoomLevel;
+
+/*
+ * Method to get new location coordinate after user scroll a map.
+ */
+-(void)showCurrentRegionCoordinates;
 @end
