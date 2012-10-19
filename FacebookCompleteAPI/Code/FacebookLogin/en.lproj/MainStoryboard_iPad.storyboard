@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12A269" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="6Lp-GB-IdB">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="pXR-2p-Wrq">
+            <objects>
+                <viewController storyboardIdentifier="LoginPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Lp-GB-IdB" customClass="FLViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vX9-nl-cve">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2u-RB-RVG">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="WiR-oc-r3v"/>
+                                    <constraint firstAttribute="width" constant="360" id="eej-p1-Mbp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="Login with Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fbLogin:" destination="6Lp-GB-IdB" eventType="touchUpInside" id="tE7-Ww-APU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="o2u-RB-RVG" firstAttribute="centerX" secondItem="vX9-nl-cve" secondAttribute="centerX" type="default" id="nXi-6p-kpm"/>
+                            <constraint firstItem="o2u-RB-RVG" firstAttribute="top" secondItem="vX9-nl-cve" secondAttribute="top" constant="472" id="pPh-ii-iwE"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rdr-cZ-HeM" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="218" y="-232"/>
+        </scene>
+        <!--Did Login View Controller-->
+        <scene sceneID="YcK-HD-Vx0">
+            <objects>
+                <viewController restorationIdentifier="LoginView" storyboardIdentifier="LoginView" id="OQO-CY-5hO" customClass="FLDidLoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jrt-Yq-I35">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ds-Gf-OJF">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5XP-Yk-ff6"/>
+                                    <constraint firstAttribute="width" constant="234" id="EtX-nA-0Qw"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j17-5C-hK1">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="504" id="Css-v1-qGR"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNk-Te-2ZH" customClass="FBProfilePictureView">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0e-tf-hMW">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="kmv-kU-YJu"/>
+                                    <constraint firstAttribute="width" constant="75" id="nNj-R5-WKR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fbLogout:" destination="OQO-CY-5hO" eventType="touchUpInside" id="dcm-Bq-rDe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1x-pQ-wqk">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Xlc-b3-Vbn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Friends&amp;Posts">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToFriendsPage:" destination="OQO-CY-5hO" eventType="touchUpInside" id="ePt-hI-X7d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wtq-6f-hwi">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Di6-kJ-B6L"/>
+                                    <constraint firstAttribute="height" constant="34" id="IZK-EG-3RA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Token">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getTokenAction:" destination="OQO-CY-5hO" eventType="touchUpInside" id="MwL-7S-Z2I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svs-aI-8wf">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="9T7-6Y-jG3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Expiry Time">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getTokenExpiryAction:" destination="OQO-CY-5hO" eventType="touchUpInside" id="bRw-XC-kuR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="j17-5C-hK1" firstAttribute="bottom" secondItem="jrt-Yq-I35" secondAttribute="bottom" type="default" id="0KH-YI-aHw"/>
+                            <constraint firstItem="Svs-aI-8wf" firstAttribute="trailing" secondItem="wtq-6f-hwi" secondAttribute="trailing" type="default" id="4Qs-cP-tFf"/>
+                            <constraint firstItem="n1x-pQ-wqk" firstAttribute="top" secondItem="jrt-Yq-I35" secondAttribute="top" constant="272" id="5EO-mi-orz"/>
+                            <constraint firstItem="0Ds-Gf-OJF" firstAttribute="baseline" secondItem="B0e-tf-hMW" secondAttribute="baseline" type="default" id="5dT-GC-wES"/>
+                            <constraint firstItem="0Ds-Gf-OJF" firstAttribute="leading" secondItem="jrt-Yq-I35" secondAttribute="leading" constant="57" id="Cq3-yg-jYE"/>
+                            <constraint firstItem="j17-5C-hK1" firstAttribute="trailing" secondItem="jrt-Yq-I35" secondAttribute="trailing" type="default" id="DvO-or-f7m"/>
+                            <constraint firstItem="n1x-pQ-wqk" firstAttribute="leading" secondItem="Svs-aI-8wf" secondAttribute="leading" type="default" id="IYB-vp-vpN"/>
+                            <constraint firstItem="nNk-Te-2ZH" firstAttribute="top" secondItem="jrt-Yq-I35" secondAttribute="top" constant="88" id="JUL-S0-IbV"/>
+                            <constraint firstAttribute="trailing" secondItem="wtq-6f-hwi" secondAttribute="trailing" constant="108" id="NkJ-ve-6ic"/>
+                            <constraint firstItem="0Ds-Gf-OJF" firstAttribute="top" secondItem="jrt-Yq-I35" secondAttribute="top" constant="356" id="Q1q-nc-4Hf"/>
+                            <constraint firstItem="wtq-6f-hwi" firstAttribute="top" secondItem="jrt-Yq-I35" secondAttribute="top" constant="114" id="S1O-68-u5I"/>
+                            <constraint firstItem="Svs-aI-8wf" firstAttribute="leading" secondItem="wtq-6f-hwi" secondAttribute="leading" type="default" id="Uls-Ft-oG5"/>
+                            <constraint firstItem="j17-5C-hK1" firstAttribute="leading" secondItem="jrt-Yq-I35" secondAttribute="leading" type="default" id="Wcv-Mt-484"/>
+                            <constraint firstItem="Svs-aI-8wf" firstAttribute="trailing" secondItem="n1x-pQ-wqk" secondAttribute="trailing" type="default" id="ZGx-dK-Nx1"/>
+                            <constraint firstItem="B0e-tf-hMW" firstAttribute="top" secondItem="jrt-Yq-I35" secondAttribute="top" constant="14" id="eFb-83-E2p"/>
+                            <constraint firstItem="nNk-Te-2ZH" firstAttribute="leading" secondItem="jrt-Yq-I35" secondAttribute="leading" constant="33" id="eJd-ZU-qwp"/>
+                            <constraint firstItem="Svs-aI-8wf" firstAttribute="top" secondItem="jrt-Yq-I35" secondAttribute="top" constant="186" id="gfm-vo-9mx"/>
+                            <constraint firstAttribute="trailing" secondItem="nNk-Te-2ZH" secondAttribute="trailing" constant="465" id="hGg-zi-ILb"/>
+                            <constraint firstAttribute="bottom" secondItem="nNk-Te-2ZH" secondAttribute="bottom" constant="647" id="hHB-IP-RJZ"/>
+                            <constraint firstAttribute="trailing" secondItem="B0e-tf-hMW" secondAttribute="trailing" constant="3" id="nsg-hC-UAc"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="userInfo" destination="j17-5C-hK1" id="rFp-d6-bUG"/>
+                        <outlet property="userNameLabel" destination="0Ds-Gf-OJF" id="DHJ-dD-b9q"/>
+                        <outlet property="userProfileImage" destination="nNk-Te-2ZH" id="97x-BW-UmD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8r8-Hw-Gr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1039" y="-232"/>
+        </scene>
+        <!--Friends View Controller-->
+        <scene sceneID="AdI-vm-js7">
+            <objects>
+                <viewController restorationIdentifier="FriendsPage" storyboardIdentifier="FriendsPage" id="QkB-sH-tro" customClass="FLFriendsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V7s-2v-ZJE" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQN-iP-Ad9">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="nF1-7d-wBy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Select Friends">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectFriends:" destination="QkB-sH-tro" eventType="touchUpInside" id="pAL-AL-yDP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGp-ce-rfp">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="CTi-S9-eXU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Post On Wall">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="wallPostAction:" destination="QkB-sH-tro" eventType="touchUpInside" id="f9H-F7-fzE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ca-xZ-M2i">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="4eI-i4-Pf3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Upload Photo">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadPhotoAction:" destination="QkB-sH-tro" eventType="touchUpInside" id="557-Dw-aKz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIa-qQ-JVO">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="hIm-5Y-MkP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Delete Post">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deletePhotoAction:" destination="QkB-sH-tro" eventType="touchUpInside" id="yS6-IQ-KxM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVc-vh-qTe">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="eF8-Kr-1gG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Get Friends FQL">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getFriendsFQL:" destination="QkB-sH-tro" eventType="touchUpInside" id="Jsc-ge-pg1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3h-2e-yV5">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="hB2-dM-sqF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Get Friends Posts">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getFriendsPostsAction:" destination="QkB-sH-tro" eventType="touchUpInside" id="UUp-yl-vjk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zt-uq-8Bp">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Ehv-hQ-bJS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Get My Posts">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getMyPostsAction:" destination="QkB-sH-tro" eventType="touchUpInside" id="hqL-r0-M6M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asV-hd-9mu">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="D9K-m6-P2o"/>
+                                    <constraint firstAttribute="height" constant="35" id="YdJ-zM-FFm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Search Friend">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchFriendAction:" destination="QkB-sH-tro" eventType="touchUpInside" id="dm5-gF-tjf"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpL-Yt-NHo">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="392" id="ilG-DP-yKr"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24v-49-PYA">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="SZb-g8-fM9"/>
+                                    <constraint firstAttribute="height" constant="30" id="aNq-Ym-AKQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Go Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackAction:" destination="QkB-sH-tro" eventType="touchUpInside" id="HAM-ZB-12a"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WqM-dR-Cra">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="A0e-hK-Df3"/>
+                                    <constraint firstAttribute="width" constant="207" id="Upj-9k-Vjb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AN1-bn-Kk5">
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="u8Q-8x-JDf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="FQL Query">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="generalFQLQueryAction" destination="QkB-sH-tro" eventType="touchUpInside" id="6et-ev-eDE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LIa-qQ-JVO" firstAttribute="centerX" secondItem="KpL-Yt-NHo" secondAttribute="centerX" type="default" id="0N7-En-KdW"/>
+                            <constraint firstItem="9zt-uq-8Bp" firstAttribute="baseline" secondItem="O3h-2e-yV5" secondAttribute="baseline" type="default" id="1hD-Ao-GfH"/>
+                            <constraint firstItem="WqM-dR-Cra" firstAttribute="baseline" secondItem="LIa-qQ-JVO" secondAttribute="baseline" type="default" id="2PJ-i1-B9c"/>
+                            <constraint firstItem="WqM-dR-Cra" firstAttribute="leading" secondItem="V7s-2v-ZJE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="2fw-bn-teU"/>
+                            <constraint firstItem="9zt-uq-8Bp" firstAttribute="leading" secondItem="6ca-xZ-M2i" secondAttribute="leading" type="default" id="389-FJ-YHe"/>
+                            <constraint firstItem="MVc-vh-qTe" firstAttribute="trailing" secondItem="tGp-ce-rfp" secondAttribute="trailing" type="default" id="4ug-Mw-F2e"/>
+                            <constraint firstItem="LIa-qQ-JVO" firstAttribute="top" secondItem="V7s-2v-ZJE" secondAttribute="top" constant="495" id="55g-qC-IPO"/>
+                            <constraint firstItem="AN1-bn-Kk5" firstAttribute="leading" secondItem="9zt-uq-8Bp" secondAttribute="leading" type="default" id="A7F-86-jqB"/>
+                            <constraint firstItem="9zt-uq-8Bp" firstAttribute="trailing" secondItem="AN1-bn-Kk5" secondAttribute="trailing" type="default" id="B9y-P1-0di"/>
+                            <constraint firstItem="MVc-vh-qTe" firstAttribute="baseline" secondItem="LIa-qQ-JVO" secondAttribute="baseline" type="default" id="Bre-Q3-MJH"/>
+                            <constraint firstItem="WQN-iP-Ad9" firstAttribute="trailing" secondItem="O3h-2e-yV5" secondAttribute="trailing" type="default" id="CCk-cn-i4p"/>
+                            <constraint firstItem="24v-49-PYA" firstAttribute="trailing" secondItem="V7s-2v-ZJE" secondAttribute="trailing" type="default" id="EE1-DQ-aMU"/>
+                            <constraint firstItem="AN1-bn-Kk5" firstAttribute="top" secondItem="V7s-2v-ZJE" secondAttribute="top" constant="427" id="H6G-6r-vSp"/>
+                            <constraint firstItem="O3h-2e-yV5" firstAttribute="trailing" secondItem="MVc-vh-qTe" secondAttribute="trailing" type="default" id="NNR-4R-c84"/>
+                            <constraint firstItem="6ca-xZ-M2i" firstAttribute="leading" secondItem="WQN-iP-Ad9" secondAttribute="leading" type="default" id="SQg-Dl-DeP"/>
+                            <constraint firstItem="9zt-uq-8Bp" firstAttribute="trailing" secondItem="6ca-xZ-M2i" secondAttribute="trailing" type="default" id="SZe-Be-iWc"/>
+                            <constraint firstItem="24v-49-PYA" firstAttribute="top" secondItem="V7s-2v-ZJE" secondAttribute="top" type="default" id="ScG-Sz-Q8k"/>
+                            <constraint firstItem="WqM-dR-Cra" firstAttribute="bottom" secondItem="LIa-qQ-JVO" secondAttribute="bottom" type="default" id="UGA-Wq-GLI"/>
+                            <constraint firstItem="asV-hd-9mu" firstAttribute="top" secondItem="V7s-2v-ZJE" secondAttribute="top" constant="35" id="VG1-Li-xFF"/>
+                            <constraint firstItem="WQN-iP-Ad9" firstAttribute="leading" secondItem="O3h-2e-yV5" secondAttribute="leading" type="default" id="Vla-2P-X96"/>
+                            <constraint firstItem="MVc-vh-qTe" firstAttribute="top" secondItem="V7s-2v-ZJE" secondAttribute="top" constant="147" id="Zy1-is-Kvu"/>
+                            <constraint firstItem="KpL-Yt-NHo" firstAttribute="leading" secondItem="V7s-2v-ZJE" secondAttribute="leading" type="default" id="arQ-AE-xD4"/>
+                            <constraint firstItem="tGp-ce-rfp" firstAttribute="trailing" secondItem="asV-hd-9mu" secondAttribute="trailing" type="default" id="btv-mk-KAx"/>
+                            <constraint firstItem="KpL-Yt-NHo" firstAttribute="bottom" secondItem="V7s-2v-ZJE" secondAttribute="bottom" type="default" id="e2N-ve-WNx"/>
+                            <constraint firstItem="WQN-iP-Ad9" firstAttribute="top" secondItem="V7s-2v-ZJE" secondAttribute="top" constant="258" id="eFV-Oe-O6S"/>
+                            <constraint firstItem="KpL-Yt-NHo" firstAttribute="trailing" secondItem="V7s-2v-ZJE" secondAttribute="trailing" type="default" id="f4u-82-N9H"/>
+                            <constraint firstItem="LIa-qQ-JVO" firstAttribute="trailing" secondItem="AN1-bn-Kk5" secondAttribute="trailing" type="default" id="fbN-2B-x8F"/>
+                            <constraint firstItem="MVc-vh-qTe" firstAttribute="baseline" secondItem="9zt-uq-8Bp" secondAttribute="baseline" type="default" id="hBL-sE-Vza"/>
+                            <constraint firstItem="LIa-qQ-JVO" firstAttribute="leading" secondItem="AN1-bn-Kk5" secondAttribute="leading" type="default" id="m8z-PY-ACn"/>
+                            <constraint firstItem="AN1-bn-Kk5" firstAttribute="baseline" secondItem="O3h-2e-yV5" secondAttribute="baseline" type="default" id="nkw-Xt-QHl"/>
+                            <constraint firstItem="6ca-xZ-M2i" firstAttribute="top" secondItem="V7s-2v-ZJE" secondAttribute="top" constant="316" id="o0G-UE-Qxc"/>
+                            <constraint firstItem="6ca-xZ-M2i" firstAttribute="trailing" secondItem="WQN-iP-Ad9" secondAttribute="trailing" type="default" id="o6O-RX-dSV"/>
+                            <constraint firstItem="MVc-vh-qTe" firstAttribute="leading" secondItem="tGp-ce-rfp" secondAttribute="leading" type="default" id="tFA-gy-fUL"/>
+                            <constraint firstItem="9zt-uq-8Bp" firstAttribute="top" secondItem="V7s-2v-ZJE" secondAttribute="top" constant="371" id="u10-jQ-and"/>
+                            <constraint firstItem="O3h-2e-yV5" firstAttribute="top" secondItem="V7s-2v-ZJE" secondAttribute="top" constant="204" id="v0x-ME-zzo"/>
+                            <constraint firstItem="O3h-2e-yV5" firstAttribute="leading" secondItem="MVc-vh-qTe" secondAttribute="leading" type="default" id="xAY-uo-azZ"/>
+                            <constraint firstItem="tGp-ce-rfp" firstAttribute="leading" secondItem="asV-hd-9mu" secondAttribute="leading" type="default" id="xeD-2e-5XY"/>
+                            <constraint firstItem="tGp-ce-rfp" firstAttribute="top" secondItem="V7s-2v-ZJE" secondAttribute="top" constant="92" id="xwz-dQ-0hh"/>
+                        </constraints>
+                        <connections>
+                            <action selector="backgroundTouchedAction" destination="QkB-sH-tro" eventType="touchUpInside" id="QSZ-bf-qLk"/>
+                        </connections>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="deletePostIDField" destination="WqM-dR-Cra" id="B9l-r8-LV8"/>
+                        <outlet property="textViewResultOutlet" destination="KpL-Yt-NHo" id="GcU-vC-ww7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nfv-nc-Flu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1893" y="-232"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="FBProfilePictureView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBProfilePictureView.h"/>
+        </class>
+        <class className="FLDidLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FLDidLoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="fbLogout:" candidateClass="UIButton"/>
+                <relationship kind="action" name="getTokenAction:" candidateClass="UIButton"/>
+                <relationship kind="action" name="getTokenExpiryAction:" candidateClass="UIButton"/>
+                <relationship kind="action" name="goToFriendsPage:"/>
+                <relationship kind="outlet" name="userInfo" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userProfileImage" candidateClass="FBProfilePictureView"/>
+            </relationships>
+        </class>
+        <class className="FLFriendsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FLFriendsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTouchedAction"/>
+                <relationship kind="action" name="deletePhotoAction:" candidateClass="UIButton"/>
+                <relationship kind="action" name="generalFQLQueryAction"/>
+                <relationship kind="action" name="getFriendsFQL:" candidateClass="UIButton"/>
+                <relationship kind="action" name="getFriendsPostsAction:" candidateClass="UIButton"/>
+                <relationship kind="action" name="getMyPostsAction:" candidateClass="UIButton"/>
+                <relationship kind="action" name="goBackAction:" candidateClass="UIButton"/>
+                <relationship kind="action" name="searchFriendAction:" candidateClass="UIButton"/>
+                <relationship kind="action" name="selectFriends:"/>
+                <relationship kind="action" name="uploadPhotoAction:" candidateClass="UIButton"/>
+                <relationship kind="action" name="wallPostAction:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="deletePostIDField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textViewResultOutlet" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="FLViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FLViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="fbLogin:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
