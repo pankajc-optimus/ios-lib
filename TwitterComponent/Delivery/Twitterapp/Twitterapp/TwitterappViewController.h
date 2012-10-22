@@ -7,7 +7,9 @@
 
 /** This application needs two extra libraries. 
  1.Twitter.framework which is added from linrary folder only. 
- 2.JSON library 
+ 2.JSON library
+ 
+ In this application,login is to be done in settings of the iOS device.iOS 5+ devices does not support present OAuth library.
  */
  
 

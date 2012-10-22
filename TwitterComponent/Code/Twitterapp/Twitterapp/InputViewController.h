@@ -8,7 +8,6 @@
 
 /**InputViewController class to show page which asks user to enter username to view tweets.Presents view named 'Input'.
  */
-
 #import <UIKit/UIKit.h>
 
 @interface InputViewController : UIViewController

@@ -20,5 +20,4 @@
  */
 - (void)fetchTweets:(NSString *)nameString;
 @property (strong,nonatomic) NSString *username;
-
 @end
